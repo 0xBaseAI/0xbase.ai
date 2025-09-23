@@ -2,6 +2,9 @@
 target = "index.html"
 dist = "dist"
 
+[wasm-opt]
+enabled = false
+
 [serve]
 addresses = ["127.0.0.1"]
 port = 8080
