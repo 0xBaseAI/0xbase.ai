@@ -629,7 +629,7 @@ fn App() -> Html {
                         </div>
                         
                         <p class="footer-text">
-                            { "© 2024 0xbase.ai • Inspired by MOMA" }
+                            { "© 2025 0xbase.ai" }
                         </p>
                     </div>
                 </footer>

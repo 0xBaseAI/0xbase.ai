@@ -4,14 +4,14 @@ A crypto-punk driven decentralized organization focused on building AI tools on 
 
 ## 🎨 About This Project
 
-This is a minimalist web application inspired by MoMA's aesthetic, featuring Yves Klein's "Blue Monochrome" artwork. The site showcases our organization's projects and philosophy with a clean, modern design.
+This is a minimalist web application featuring Yves Klein's "Blue Monochrome" artwork. The site showcases our organization's projects and philosophy with a clean, modern design.
 
 ### Features
 
 - **Responsive Design**: Optimized for all screen sizes with golden ratio proportions
 - **Interactive Navigation**: Click the artwork or scroll down to access project information
 - **Smooth Animations**: Subtle rainbow background animation and smooth scrolling
-- **Modern UI**: Clean typography and minimalist layout inspired by MoMA
+- **Modern UI**: Clean typography and minimalist layout
 - **Project Showcase**: Display of our open-source projects with detailed descriptions
 
 ## 🚀 Quick Start
