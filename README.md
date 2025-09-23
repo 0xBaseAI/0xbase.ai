@@ -1,75 +1,127 @@
-# Yew WebAssembly Application
+# 0xbase.ai
 
-A simple Yew application displaying Yves Klein's Blue Monochrome artwork with MOMA-style presentation.
+A crypto-punk driven decentralized organization focused on building AI tools on Basechain. We have extreme requirements and security obsessions, requiring all code to be written in Rust and fully open source.
 
-## Prerequisites
+## 🎨 About This Project
 
-- Rust (nightly version)
-- Trunk (installed via `cargo install trunk`)
+This is a minimalist web application inspired by MoMA's aesthetic, featuring Yves Klein's "Blue Monochrome" artwork. The site showcases our organization's projects and philosophy with a clean, modern design.
 
-## Quick Start
+### Features
 
-### Using Makefile (Recommended)
+- **Responsive Design**: Optimized for all screen sizes with golden ratio proportions
+- **Interactive Navigation**: Click the artwork or scroll down to access project information
+- **Smooth Animations**: Subtle rainbow background animation and smooth scrolling
+- **Modern UI**: Clean typography and minimalist layout inspired by MoMA
+- **Project Showcase**: Display of our open-source projects with detailed descriptions
 
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Rust (nightly toolchain)
+- Trunk (Rust WASM build tool)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# Start development server
-make serve
+git clone https://github.com/0xBaseAI/0xbase.ai.git
+cd 0xbase.ai
+```
 
-# Or start on a different port
+2. Install Trunk:
+```bash
+cargo install trunk
+```
+
+3. Serve the development server:
+```bash
 make serve-dev
-
-# Build for production
-make build-prod
-
-# See all available commands
-make help
 ```
 
-### Manual Commands
+4. Open your browser and navigate to `http://127.0.0.1:8081`
 
-```bash
-# Start development server
-trunk serve --port 8080
+## 🛠️ Development
 
-# Build for production
-trunk build --release
+### Available Commands
 
-# Check code
-cargo check
+- `make serve-dev` - Start development server on localhost:8081
+- `make serve` - Start production server on localhost:8080
+- `make build` - Build the project for production
+- `make check` - Run cargo check
+- `make clean` - Clean build artifacts
+
+### Project Structure
+
 ```
-
-## Project Structure
-
-```
+0xbase.ai/
 ├── src/
 │   └── main.rs          # Main Yew application
-├── index.html           # HTML template
-├── blue.jpg             # Artwork image
-├── Cargo.toml           # Rust dependencies
-├── rust-toolchain      # Rust version override
+├── imgs/                # Static assets
+│   ├── blue.jpg         # Yves Klein artwork
+│   ├── logo.png         # 0xbase.ai logo
+│   ├── favicon.png      # Site favicon
+│   ├── rings.png        # Rings project logo
+│   └── castorix.png     # Castorix project logo
+├── index.html           # HTML entry point
+├── Cargo.toml          # Rust dependencies
+├── Trunk.toml          # Trunk configuration
+├── rust-toolchain      # Rust toolchain specification
 ├── Makefile            # Build automation
-└── README.md           # This file
+└── README.md          # This file
 ```
 
-## Features
+## 🎯 Our Projects
 
-- **MOMA-style Design**: Clean, minimalist presentation
-- **Responsive Layout**: Works on different screen sizes
-- **WebAssembly**: Fast, native performance in the browser
-- **Hot Reload**: Automatic rebuilds during development
+### Rings
+**P2P network with WebRTC & WASM**
 
-## Development
+A decentralized peer-to-peer networking library built with Rust, featuring WebRTC for real-time communication and WebAssembly for cross-platform compatibility. Designed for high-performance, low-latency applications.
 
-The application displays:
-- Yves Klein's Blue Monochrome artwork
-- Artist name: "Yves Klein"
-- Artwork title: "Blue Monochrome" (italicized)
-- Year: "1961"
+[GitHub Repository](https://github.com/0xBaseAI/rings)
 
-## Access
+### Castorix
+**Farcaster protocol library**
 
-Once the server is running, open your browser to:
-- `http://127.0.0.1:8080` (default)
-- `http://127.0.0.1:8081` (alternative port)
+A comprehensive Rust implementation of the Farcaster protocol, providing secure and efficient tools for building decentralized social applications. Features include cryptographic signatures, message validation, and network synchronization.
 
-**Security Note**: The server only listens on localhost (127.0.0.1) for security reasons.
+[GitHub Repository](https://github.com/0xBaseAI/castorix)
+
+## 🎨 Design Philosophy
+
+This website embodies our core principles:
+
+- **Minimalism**: Clean, uncluttered design focusing on essential elements
+- **Aesthetic Excellence**: Inspired by MoMA's design language and Yves Klein's artistic vision
+- **Technical Precision**: Built with Rust for performance and security
+- **Open Source**: All code is publicly available and auditable
+
+## 🔧 Technology Stack
+
+- **Frontend**: Yew (Rust WebAssembly framework)
+- **Build Tool**: Trunk
+- **Styling**: CSS3 with modern features (Flexbox, Grid, CSS Variables)
+- **Deployment**: Static site generation
+
+## 📝 License
+
+This project is licensed under a proprietary license that prohibits any form of usage. All rights reserved.
+
+## 🤝 Contributing
+
+We welcome contributions from the community. Please ensure all code follows our standards:
+
+- Written in Rust
+- Fully documented
+- Security-focused
+- Performance-optimized
+
+## 📞 Contact
+
+- **Organization**: 0xbase.ai
+- **Focus**: Base, LLM, and Rust
+- **Philosophy**: Crypto-punk driven, decentralized, security-obsessed
+
+---
+
+*Built with ❤️ and Rust by the 0xbase.ai team*
