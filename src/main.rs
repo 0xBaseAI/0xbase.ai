@@ -626,6 +626,15 @@ fn App() -> Html {
                                     <div class="project-detail">{ "A comprehensive Rust implementation of the Farcaster protocol, providing secure and efficient tools for building decentralized social applications. Features include cryptographic signatures, message validation, and network synchronization." }</div>
                                 </div>
                             </a>
+                            <div class="project-divider"></div>
+                            <a href="https://github.com/0xBaseAI/snaprag" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <img src="/imgs/snapRAG.png" alt="SnapRAG" class="project-logo" />
+                                <div class="project-content">
+                                    <div class="project-name">{ "SnapRAG" }</div>
+                                    <div class="project-desc">{ "Farcaster data synchronization system" }</div>
+                                    <div class="project-detail">{ "A high-performance data synchronization system designed specifically for Farcaster protocol data. It provides complete historical data synchronization, real-time monitoring, and profile management with PostgreSQL, optimized for RAG (Retrieval-Augmented Generation) applications." }</div>
+                                </div>
+                            </a>
                         </div>
                         
                         <p class="footer-text">
