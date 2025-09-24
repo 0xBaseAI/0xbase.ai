@@ -375,7 +375,7 @@ fn App() -> Html {
                 .footer-projects {
                     display: flex;
                     justify-content: center;
-                    align-items: center;
+                    align-items: flex-start;
                     gap: 0;
                     margin: 0;
                     padding: 2.5rem 0;
@@ -387,6 +387,7 @@ fn App() -> Html {
                     color: #e0e0e0;
                     text-decoration: none;
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
                     gap: 1rem;
                     padding: 2rem 3rem;
@@ -395,8 +396,8 @@ fn App() -> Html {
                     max-width: 400px;
                     font-size: 1.1rem;
                     line-height: 1.5;
-                    text-align: left;
-                    min-height: 120px;
+                    text-align: center;
+                    height: 160px;
                 }
                 
                 .project-link:hover {
@@ -409,8 +410,6 @@ fn App() -> Html {
                     opacity: 0.9;
                     transition: all 0.2s ease;
                     flex-shrink: 0;
-                    align-self: flex-start;
-                    margin-top: 0.5rem;
                 }
                 
                 .project-link:hover .project-logo {
@@ -422,6 +421,8 @@ fn App() -> Html {
                     display: flex;
                     flex-direction: column;
                     gap: 0.3rem;
+                    align-items: center;
+                    text-align: center;
                 }
                 
                 .project-name {
@@ -436,13 +437,6 @@ fn App() -> Html {
                     font-weight: 400;
                 }
                 
-                .project-detail {
-                    font-size: 0.75rem;
-                    color: #aaaaaa;
-                    line-height: 1.4;
-                    font-weight: 300;
-                    max-width: 300px;
-                }
                 
                 .project-link br {
                     margin: 0.3rem 0;
@@ -450,7 +444,7 @@ fn App() -> Html {
                 
                 .project-divider {
                     width: 1px;
-                    height: 80px;
+                    height: 100px;
                     background: linear-gradient(to bottom, 
                         transparent 0%, 
                         rgba(255, 255, 255, 0.1) 20%, 
@@ -613,7 +607,6 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "Rings" }</div>
                                     <div class="project-desc">{ "P2P network with WebRTC & WASM" }</div>
-                                    <div class="project-detail">{ "A decentralized peer-to-peer networking library built with Rust, featuring WebRTC for real-time communication and WebAssembly for cross-platform compatibility. Designed for high-performance, low-latency applications." }</div>
                                 </div>
                             </a>
                             <div class="project-divider"></div>
@@ -622,7 +615,6 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "Castorix" }</div>
                                     <div class="project-desc">{ "Farcaster protocol library" }</div>
-                                    <div class="project-detail">{ "A comprehensive Rust implementation of the Farcaster protocol, providing secure and efficient tools for building decentralized social applications. Features include cryptographic signatures, message validation, and network synchronization." }</div>
                                 </div>
                             </a>
                             <div class="project-divider"></div>
@@ -631,7 +623,6 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "SnapRAG" }</div>
                                     <div class="project-desc">{ "Farcaster data synchronization system" }</div>
-                                    <div class="project-detail">{ "A high-performance data synchronization system designed specifically for Farcaster protocol data. It provides complete historical data synchronization, real-time monitoring, and profile management with PostgreSQL, optimized for RAG (Retrieval-Augmented Generation) applications." }</div>
                                 </div>
                             </a>
                         </div>
