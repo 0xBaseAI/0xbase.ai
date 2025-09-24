@@ -14,50 +14,6 @@ fn App() -> Html {
     });
     html! {
         <>
-            <script>
-                {"
-                let isScrolling = false;
-                let scrollTimeout;
-                
-                function smoothScrollToFooter() {
-                    if (isScrolling) return;
-                    
-                    isScrolling = true;
-                    const footer = document.getElementById('footer');
-                    if (footer) {
-                        footer.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                    
-                    // Reset scrolling flag after animation completes
-                    scrollTimeout = setTimeout(() => {
-                        isScrolling = false;
-                    }, 1000);
-                }
-                
-                document.addEventListener('wheel', function(event) {
-                    // Only trigger if scrolling down and not already scrolling
-                    if (event.deltaY > 0 && !isScrolling) {
-                        event.preventDefault();
-                        smoothScrollToFooter();
-                    }
-                }, { passive: false });
-                
-                // Also handle touch events for mobile
-                let touchStartY = 0;
-                document.addEventListener('touchstart', function(event) {
-                    touchStartY = event.touches[0].clientY;
-                });
-                
-                document.addEventListener('touchend', function(event) {
-                    if (!isScrolling && touchStartY - event.changedTouches[0].clientY > 50) {
-                        smoothScrollToFooter();
-                    }
-                });
-                "}
-            </script>
             <style>
                 {"
                 * {
@@ -426,12 +382,12 @@ fn App() -> Html {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    justify-content: center;
-                    gap: 1rem;
+                    justify-content: flex-start;
+                    gap: 0.8rem;
                     padding: 1.5rem;
                     transition: all 0.2s ease;
                     width: 280px;
-                    height: 180px;
+                    height: 260px;
                     font-size: 1.1rem;
                     line-height: 1.5;
                     text-align: center;
@@ -443,17 +399,22 @@ fn App() -> Html {
                 }
                 
                 .project-logo {
-                    width: 64px;
-                    height: 64px;
+                    width: 120px;
+                    height: 120px;
                     opacity: 0.9;
                     transition: all 0.2s ease;
                     flex-shrink: 0;
                     object-fit: contain;
+                    border-radius: 50%;
+                    padding: 6px;
+                    background: rgba(255, 255, 255, 0.02);
+                    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
                 }
                 
                 .project-link:hover .project-logo {
                     opacity: 1;
                     transform: scale(1.05);
+                    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
                 }
                 
                 .project-content {
@@ -474,6 +435,15 @@ fn App() -> Html {
                     font-size: 0.9rem;
                     color: #cccccc;
                     font-weight: 400;
+                }
+                
+                .project-detail {
+                    font-size: 0.75rem;
+                    color: #aaaaaa;
+                    line-height: 1.4;
+                    font-weight: 300;
+                    text-align: center;
+                    margin-top: 0.5rem;
                 }
                 
                 
@@ -541,11 +511,15 @@ fn App() -> Html {
                     }
                     
                     .project-logo {
-                        width: 56px;
-                        height: 56px;
+                        width: 108px;
+                        height: 108px;
                         align-self: center;
                         margin-top: 0;
                         object-fit: contain;
+                        border-radius: 50%;
+                        padding: 5px;
+                        background: rgba(255, 255, 255, 0.02);
+                        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15)) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
                     }
                     
                     .project-content {
@@ -636,6 +610,7 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "Rings" }</div>
                                     <div class="project-desc">{ "P2P network with WebRTC & WASM" }</div>
+                                    <div class="project-detail">{ "A decentralized peer-to-peer networking library built with Rust, featuring WebRTC for real-time communication and WebAssembly for cross-platform compatibility." }</div>
                                 </div>
                             </a>
                             <a href="https://github.com/0xBaseAI/castorix" target="_blank" rel="noopener noreferrer" class="project-link">
@@ -643,6 +618,7 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "Castorix" }</div>
                                     <div class="project-desc">{ "Farcaster protocol library" }</div>
+                                    <div class="project-detail">{ "A comprehensive Rust implementation of the Farcaster protocol, providing secure and efficient tools for building decentralized social applications." }</div>
                                 </div>
                             </a>
                             <a href="https://github.com/0xBaseAI/snaprag" target="_blank" rel="noopener noreferrer" class="project-link">
@@ -650,6 +626,7 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "SnapRAG" }</div>
                                     <div class="project-desc">{ "Farcaster data synchronization system" }</div>
+                                    <div class="project-detail">{ "A high-performance data synchronization system designed specifically for Farcaster protocol data, optimized for RAG applications." }</div>
                                 </div>
                             </a>
                             <a href="https://github.com/RyanKung/x402/tree/feature/rust-implementation/rust" target="_blank" rel="noopener noreferrer" class="project-link">
@@ -657,6 +634,7 @@ fn App() -> Html {
                                 <div class="project-content">
                                     <div class="project-name">{ "x402" }</div>
                                     <div class="project-desc">{ "Rust implementation of X402" }</div>
+                                    <div class="project-detail">{ "A payments protocol for the internet built on HTTP, providing a standardized way to handle payments in web applications." }</div>
                                 </div>
                             </a>
                         </div>
