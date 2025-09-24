@@ -388,11 +388,15 @@ fn App() -> Html {
                     text-decoration: none;
                     display: flex;
                     align-items: center;
-                    gap: 2rem;
+                    gap: 1rem;
                     padding: 2rem 3rem;
                     transition: all 0.2s ease;
                     flex: 1;
                     max-width: 400px;
+                    font-size: 1.1rem;
+                    line-height: 1.5;
+                    text-align: left;
+                    min-height: 120px;
                 }
                 
                 .project-link:hover {
@@ -405,20 +409,13 @@ fn App() -> Html {
                     opacity: 0.9;
                     transition: all 0.2s ease;
                     flex-shrink: 0;
+                    align-self: flex-start;
+                    margin-top: 0.5rem;
                 }
                 
                 .project-link:hover .project-logo {
                     opacity: 1;
                     transform: scale(1.05);
-                }
-                
-                .project-link {
-                    font-size: 1.1rem;
-                    line-height: 1.5;
-                    text-align: left;
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 1rem;
                 }
                 
                 .project-content {
@@ -453,7 +450,7 @@ fn App() -> Html {
                 
                 .project-divider {
                     width: 1px;
-                    height: 60px;
+                    height: 80px;
                     background: linear-gradient(to bottom, 
                         transparent 0%, 
                         rgba(255, 255, 255, 0.1) 20%, 
@@ -461,6 +458,7 @@ fn App() -> Html {
                         rgba(255, 255, 255, 0.1) 80%, 
                         transparent 100%);
                     flex-shrink: 0;
+                    align-self: center;
                 }
                 
                 .footer-text {
@@ -524,6 +522,7 @@ fn App() -> Html {
                         width: 48px;
                         height: 48px;
                         align-self: center;
+                        margin-top: 0;
                     }
                     
                     .project-content {
