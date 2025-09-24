@@ -16,13 +16,44 @@ fn App() -> Html {
         <>
             <script>
                 {"
+                let isScrolling = false;
+                let scrollTimeout;
+                
+                function smoothScrollToFooter() {
+                    if (isScrolling) return;
+                    
+                    isScrolling = true;
+                    const footer = document.getElementById('footer');
+                    if (footer) {
+                        footer.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    // Reset scrolling flag after animation completes
+                    scrollTimeout = setTimeout(() => {
+                        isScrolling = false;
+                    }, 1000);
+                }
+                
                 document.addEventListener('wheel', function(event) {
-                    // Only trigger if scrolling down
-                    if (event.deltaY > 0) {
-                        const footer = document.getElementById('footer');
-                        if (footer) {
-                            footer.scrollIntoView({ behavior: 'smooth' });
-                        }
+                    // Only trigger if scrolling down and not already scrolling
+                    if (event.deltaY > 0 && !isScrolling) {
+                        event.preventDefault();
+                        smoothScrollToFooter();
+                    }
+                }, { passive: false });
+                
+                // Also handle touch events for mobile
+                let touchStartY = 0;
+                document.addEventListener('touchstart', function(event) {
+                    touchStartY = event.touches[0].clientY;
+                });
+                
+                document.addEventListener('touchend', function(event) {
+                    if (!isScrolling && touchStartY - event.changedTouches[0].clientY > 50) {
+                        smoothScrollToFooter();
                     }
                 });
                 "}
@@ -240,6 +271,7 @@ fn App() -> Html {
                     }
                 }
                 
+                
                 /* Medium screens (tablet) */
                 @media (max-width: 768px) {
                     .main-content {
@@ -374,14 +406,19 @@ fn App() -> Html {
                 
                 .footer-projects {
                     display: flex;
+                    flex-wrap: wrap;
                     justify-content: center;
                     align-items: flex-start;
-                    gap: 0;
+                    gap: 2rem;
                     margin: 0;
                     padding: 2.5rem 0;
                     border-top: 1px solid rgba(255, 255, 255, 0.15);
                     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                    max-width: 1400px;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
+                
                 
                 .project-link {
                     color: #e0e0e0;
@@ -389,15 +426,16 @@ fn App() -> Html {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    justify-content: center;
                     gap: 1rem;
-                    padding: 2rem 3rem;
+                    padding: 1.5rem;
                     transition: all 0.2s ease;
-                    flex: 1;
-                    max-width: 400px;
+                    width: 280px;
+                    height: 180px;
                     font-size: 1.1rem;
                     line-height: 1.5;
                     text-align: center;
-                    height: 160px;
+                    box-sizing: border-box;
                 }
                 
                 .project-link:hover {
@@ -405,11 +443,12 @@ fn App() -> Html {
                 }
                 
                 .project-logo {
-                    width: 56px;
-                    height: 56px;
+                    width: 64px;
+                    height: 64px;
                     opacity: 0.9;
                     transition: all 0.2s ease;
                     flex-shrink: 0;
+                    object-fit: contain;
                 }
                 
                 .project-link:hover .project-logo {
@@ -442,18 +481,6 @@ fn App() -> Html {
                     margin: 0.3rem 0;
                 }
                 
-                .project-divider {
-                    width: 1px;
-                    height: 100px;
-                    background: linear-gradient(to bottom, 
-                        transparent 0%, 
-                        rgba(255, 255, 255, 0.1) 20%, 
-                        rgba(255, 255, 255, 0.2) 50%, 
-                        rgba(255, 255, 255, 0.1) 80%, 
-                        transparent 100%);
-                    flex-shrink: 0;
-                    align-self: center;
-                }
                 
                 .footer-text {
                     margin: 0;
@@ -499,6 +526,7 @@ fn App() -> Html {
                         flex-direction: column;
                         gap: 2rem;
                         padding: 2rem 0;
+                        align-items: center;
                     }
                     
                     .project-link {
@@ -513,10 +541,11 @@ fn App() -> Html {
                     }
                     
                     .project-logo {
-                        width: 48px;
-                        height: 48px;
+                        width: 56px;
+                        height: 56px;
                         align-self: center;
                         margin-top: 0;
+                        object-fit: contain;
                     }
                     
                     .project-content {
@@ -609,7 +638,6 @@ fn App() -> Html {
                                     <div class="project-desc">{ "P2P network with WebRTC & WASM" }</div>
                                 </div>
                             </a>
-                            <div class="project-divider"></div>
                             <a href="https://github.com/0xBaseAI/castorix" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <img src="/imgs/castorix.png" alt="Castorix" class="project-logo" />
                                 <div class="project-content">
@@ -617,12 +645,18 @@ fn App() -> Html {
                                     <div class="project-desc">{ "Farcaster protocol library" }</div>
                                 </div>
                             </a>
-                            <div class="project-divider"></div>
                             <a href="https://github.com/0xBaseAI/snaprag" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <img src="/imgs/snapRAG.png" alt="SnapRAG" class="project-logo" />
                                 <div class="project-content">
                                     <div class="project-name">{ "SnapRAG" }</div>
                                     <div class="project-desc">{ "Farcaster data synchronization system" }</div>
+                                </div>
+                            </a>
+                            <a href="https://github.com/RyanKung/x402/tree/feature/rust-implementation/rust" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <img src="/imgs/x402.png" alt="x402" class="project-logo" />
+                                <div class="project-content">
+                                    <div class="project-name">{ "x402" }</div>
+                                    <div class="project-desc">{ "Rust implementation of X402" }</div>
                                 </div>
                             </a>
                         </div>
