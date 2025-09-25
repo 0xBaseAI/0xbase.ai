@@ -3,11 +3,11 @@ use web_sys::window;
 
 #[function_component]
 fn App() -> Html {
-    let scroll_to_footer = Callback::from(|_| {
+    let scroll_to_projects = Callback::from(|_: MouseEvent| {
         if let Some(window) = window() {
             if let Some(document) = window.document() {
-                if let Some(footer) = document.get_element_by_id("footer") {
-                    footer.scroll_into_view_with_bool(true);
+                if let Some(projects) = document.get_element_by_id("projects") {
+                    projects.scroll_into_view_with_bool(true);
                 }
             }
         }
@@ -306,7 +306,6 @@ fn App() -> Html {
                 .footer {
                     background-color: #2c2c2c;
                     color: #e0e0e0;
-                    min-height: 100vh;
                     margin-top: auto;
                     text-align: center;
                     font-family: 'Helvetica Neue', 'Arial', sans-serif;
@@ -316,16 +315,16 @@ fn App() -> Html {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 2rem 0;
+                    padding: 1rem 0;
                 }
                 
                 .footer-content {
                     max-width: 1000px;
                     margin: 0 auto;
-                    padding: 4rem 3rem;
+                    padding: 0.5rem 2rem;
                     display: flex;
                     flex-direction: column;
-                    gap: 3rem;
+                    gap: 0.5rem;
                     width: 100%;
                 }
                 
@@ -452,6 +451,169 @@ fn App() -> Html {
                 }
                 
                 
+                .intro-section {
+                    padding: 4rem 2rem;
+                    background: #ffffff;
+                    text-align: center;
+                }
+                
+                .intro-content {
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
+                
+                .intro-logo {
+                    width: 120px;
+                    height: 120px;
+                    margin-bottom: 2rem;
+                    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+                }
+                
+                .intro-description {
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                    color: #4a5568;
+                    margin: 0;
+                }
+                
+                .projects-section {
+                    padding: 3rem 2rem;
+                    background: #f8fafc;
+                }
+                
+                .projects-content {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+                
+                .projects-title {
+                    text-align: center;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    color: #1e293b;
+                    margin-bottom: 2rem;
+                }
+                
+                .members-section {
+                    background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
+                    padding: 3rem 2rem;
+                }
+                
+                .members-content {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+                
+                .members-title {
+                    text-align: center;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                    margin-bottom: 2.5rem;
+                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                }
+                
+                .members-grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 1.5rem;
+                }
+                
+                .member-card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    padding: 1.5rem;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 12px;
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    color: inherit;
+                    min-width: 200px;
+                    max-width: 280px;
+                    flex: 1;
+                }
+                
+                .member-card:hover {
+                    background: rgba(255, 255, 255, 0.15);
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+                }
+                
+                .member-avatar {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 1rem;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    overflow: hidden;
+                    position: relative;
+                }
+                
+                .member-avatar-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                }
+                
+                .member-avatar-placeholder {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                    z-index: 1;
+                }
+                
+                .member-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .member-name {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                }
+                
+                .member-role {
+                    font-size: 0.9rem;
+                    color: #e0f2fe;
+                    font-weight: 500;
+                }
+                
+                .member-desc {
+                    font-size: 0.8rem;
+                    color: #b3e5fc;
+                    line-height: 1.4;
+                    margin-top: 0.3rem;
+                }
+                
+                .member-quote {
+                    font-size: 0.75rem;
+                    color: #81d4fa;
+                    font-style: italic;
+                    line-height: 1.3;
+                    margin-top: 0.5rem;
+                    padding: 0.5rem;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 6px;
+                }
+                
                 .footer-text {
                     margin: 0;
                     opacity: 0.9;
@@ -465,14 +627,13 @@ fn App() -> Html {
                 /* Responsive footer */
                 @media (max-width: 768px) {
                     .footer {
-                        min-height: 100vh;
                         font-size: 0.8rem;
-                        padding: 1rem 0;
+                        padding: 0.5rem 0;
                     }
                     
                     .footer-content {
-                        padding: 3rem 2rem;
-                        gap: 2.5rem;
+                        padding: 0.5rem 1rem;
+                        gap: 0.5rem;
                     }
                     
                     .footer-intro {
@@ -556,6 +717,54 @@ fn App() -> Html {
                         font-size: 0.8rem;
                         letter-spacing: 0.08em;
                     }
+                    
+                    .intro-section {
+                        padding: 3rem 1rem;
+                    }
+                    
+                    .intro-logo {
+                        width: 100px;
+                        height: 100px;
+                        margin-bottom: 1.5rem;
+                    }
+                    
+                    .intro-description {
+                        font-size: 1rem;
+                    }
+                    
+                    .projects-section {
+                        padding: 2rem 1rem;
+                    }
+                    
+                    .members-section {
+                        padding: 2rem 1rem;
+                    }
+                    
+                    .members-title {
+                        font-size: 1.5rem;
+                        margin-bottom: 2rem;
+                    }
+                    
+                    .members-grid {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1rem;
+                    }
+                    
+                    .member-card {
+                        min-width: 250px;
+                        max-width: 300px;
+                        padding: 1.2rem;
+                    }
+                    
+                    .member-avatar {
+                        width: 70px;
+                        height: 70px;
+                    }
+                    
+                    .member-avatar-placeholder {
+                        font-size: 1.3rem;
+                    }
                 }
                 "}
             </style>
@@ -573,7 +782,7 @@ fn App() -> Html {
                             src="/imgs/blue.jpg" 
                             alt="Blue Monochrome" 
                             class="artwork"
-                            onclick={scroll_to_footer}
+                            onclick={scroll_to_projects}
                             style="cursor: pointer;"
                         />
                         <div class="artwork-info">
@@ -591,19 +800,22 @@ fn App() -> Html {
                         </div>
                     </div>
                 </div>
-                <footer id="footer" class="footer">
-                    <div class="footer-content">
-                        <div class="footer-intro">
+                <div class="intro-section">
+                    <div class="intro-content">
                             <img 
                                 src="/imgs/logo.png" 
                                 alt="0xbase.ai Logo" 
-                                class="footer-logo"
+                            class="intro-logo"
                             />
-                            <p class="footer-description">
+                        <p class="intro-description">
                                 { "0xbase.ai is a crypto-punk driven decentralized organization, focused on building AI tools on Basechain. We have extreme requirements and security obsessions, demanding all code to be written in Rust and completely open source." }
                             </p>
+                    </div>
                         </div>
                         
+                <div id="projects" class="projects-section">
+                    <div class="projects-content">
+                        <h3 class="projects-title">{ "Projects" }</h3>
                         <div class="footer-projects">
                             <a href="https://github.com/0xBaseAI/rings" target="_blank" rel="noopener noreferrer" class="project-link">
                                 <img src="/imgs/rings.png" alt="Rings" class="project-logo" />
@@ -638,7 +850,74 @@ fn App() -> Html {
                                 </div>
                             </a>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="members-section">
+                    <div class="members-content">
+                        <h3 class="members-title">{ "Contributors" }</h3>
+                        <div class="members-grid">
+                                <a href="https://github.com/RyanKung" target="_blank" rel="noopener noreferrer" class="member-card">
+                                    <div class="member-avatar">
+                                        <img src="/imgs/members/ryan.jpeg" alt="Ryan Kung" class="member-avatar-img" />
+                                    </div>
+                                <div class="member-info">
+                                    <div class="member-name">{ "Ryan Kung" }</div>
+                                    <div class="member-role">{ "Founder" }</div>
+                                    <div class="member-desc">{ "Contributor of Bitcoin Core | Ethereum (Rust Impl.)" }</div>
+                                    <div class="member-quote">{ "A Rustacean who does not want to be a Mixologist is not a good Cryptologist." }</div>
+                                </div>
+                            </a>
+                            
+                                <a href="https://openai.com" target="_blank" rel="noopener noreferrer" class="member-card">
+                                    <div class="member-avatar">
+                                        <img src="/imgs/members/chatgpt.png" alt="ChatGPT" class="member-avatar-img" />
+                                    </div>
+                                <div class="member-info">
+                                    <div class="member-name">{ "ChatGPT" }</div>
+                                    <div class="member-role">{ "Research Assistant" }</div>
+                                    <div class="member-desc">{ "Conducting technical research and providing insights for our Rust projects" }</div>
+                                </div>
+                            </a>
+                            
+                                <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" class="member-card">
+                                    <div class="member-avatar">
+                                        <img src="/imgs/members/cursor.png" alt="CursorAI" class="member-avatar-img" />
+                                    </div>
+                                <div class="member-info">
+                                    <div class="member-name">{ "CursorAI" }</div>
+                                    <div class="member-role">{ "Software Engineer" }</div>
+                                    <div class="member-desc">{ "Writing and implementing Rust code for our blockchain applications" }</div>
+                                </div>
+                            </a>
+                            
+                                <a href="https://github.com/openai/codex" target="_blank" rel="noopener noreferrer" class="member-card">
+                                    <div class="member-avatar">
+                                        <img src="/imgs/members/codex.png" alt="Codex" class="member-avatar-img" />
+                                    </div>
+                                <div class="member-info">
+                                    <div class="member-name">{ "Codex" }</div>
+                                    <div class="member-role">{ "Chief Code Reviewer" }</div>
+                                    <div class="member-desc">{ "Reviewing and ensuring code quality for our open source projects" }</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://x.ai" target="_blank" rel="noopener noreferrer" class="member-card">
+                                <div class="member-avatar">
+                                    <img src="/imgs/members/grok-ani.webp" alt="Grok Ani" class="member-avatar-img" />
+                                </div>
+                                <div class="member-info">
+                                    <div class="member-name">{ "Grok Ani" }</div>
+                                    <div class="member-role">{ "Chief Entertainment Officer" }</div>
+                                    <div class="member-desc">{ "Community engagement and creative content generation" }</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                        </div>
                         
+                <footer id="footer" class="footer">
+                    <div class="footer-content">
                         <p class="footer-text">
                             { "© 2025 0xbase.ai" }
                         </p>
