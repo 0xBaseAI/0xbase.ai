@@ -426,19 +426,19 @@ fn App() -> Html {
                 
                 .project-name {
                     font-size: 1.1rem;
-                    font-weight: 600;
-                    color: #ffffff;
+                    font-weight: 700;
+                    color: #1a202c;
                 }
                 
                 .project-desc {
                     font-size: 0.9rem;
-                    color: #cccccc;
+                    color: #2d3748;
                     font-weight: 400;
                 }
                 
                 .project-detail {
                     font-size: 0.75rem;
-                    color: #aaaaaa;
+                    color: #4a5568;
                     line-height: 1.4;
                     font-weight: 300;
                     text-align: center;
@@ -526,10 +526,6 @@ fn App() -> Html {
                     align-items: center;
                     text-align: center;
                     padding: 1.5rem;
-                    background: rgba(255, 255, 255, 0.1);
-                    border-radius: 12px;
-                    backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.2);
                     transition: all 0.3s ease;
                     text-decoration: none;
                     color: inherit;
@@ -539,9 +535,7 @@ fn App() -> Html {
                 }
                 
                 .member-card:hover {
-                    background: rgba(255, 255, 255, 0.15);
                     transform: translateY(-4px);
-                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
                 }
                 
                 .member-avatar {
@@ -617,7 +611,7 @@ fn App() -> Html {
                 .footer-text {
                     margin: 0;
                     opacity: 0.9;
-                    font-size: 0.9rem;
+                    font-size: 0.7rem;
                     letter-spacing: 0.1em;
                     text-transform: uppercase;
                     font-weight: 400;
@@ -714,7 +708,7 @@ fn App() -> Html {
                     }
                     
                     .footer-text {
-                        font-size: 0.8rem;
+                        font-size: 0.6rem;
                         letter-spacing: 0.08em;
                     }
                     
@@ -808,8 +802,8 @@ fn App() -> Html {
                             class="intro-logo"
                             />
                         <p class="intro-description">
-                                { "0xbase.ai is a crypto-punk driven decentralized organization, focused on building AI tools on Basechain. We have extreme requirements and security obsessions, demanding all code to be written in Rust and completely open source." }
-                            </p>
+                            { "Building AI tools on Basechain with Rust and open source obsession." }
+                        </p>
                     </div>
                         </div>
                         
@@ -882,10 +876,10 @@ fn App() -> Html {
                             
                                 <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" class="member-card">
                                     <div class="member-avatar">
-                                        <img src="/imgs/members/cursor.png" alt="CursorAI" class="member-avatar-img" />
+                                        <img src="/imgs/members/cursor.png" alt="cursor.app" class="member-avatar-img" />
                                     </div>
                                 <div class="member-info">
-                                    <div class="member-name">{ "CursorAI" }</div>
+                                    <div class="member-name">{ "cursor.app" }</div>
                                     <div class="member-role">{ "Software Engineer" }</div>
                                     <div class="member-desc">{ "Writing and implementing Rust code for our blockchain applications" }</div>
                                 </div>
