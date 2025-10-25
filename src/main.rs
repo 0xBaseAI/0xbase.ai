@@ -803,7 +803,7 @@ fn App() -> Html {
                             />
                         <p class="intro-description">
                             { "Building AI tools on Basechain with Rust and open source obsession." }
-                        </p>
+                            </p>
                     </div>
                         </div>
                         
@@ -841,6 +841,14 @@ fn App() -> Html {
                                     <div class="project-name">{ "x402" }</div>
                                     <div class="project-desc">{ "Rust implementation of X402" }</div>
                                     <div class="project-detail">{ "A payments protocol for the internet built on HTTP, providing a standardized way to handle payments in web applications." }</div>
+                                </div>
+                            </a>
+                            <a href="https://github.com/0xBaseAI/polyjuice" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <img src="/imgs/polyjuice.png" alt="Polyjuice" class="project-logo" />
+                                <div class="project-content">
+                                    <div class="project-name">{ "Polyjuice" }</div>
+                                    <div class="project-desc">{ "Frontend project supporting x402" }</div>
+                                    <div class="project-detail">{ "A frontend project that supports x402 protocol and can mimic any Farcaster user through SnapRAG integration." }</div>
                                 </div>
                             </a>
                         </div>
